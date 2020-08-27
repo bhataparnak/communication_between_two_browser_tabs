@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Quiz 6</title>
+  <h1>Aparna Krishna Bhat</h1>
+  <h2>1001255079</h2>
+</head>
+<body>
+
+
+  
+    <h1>PAGE 2</h1>
+
+<textarea data-sender="page2" placeholder="Write to page 1"></textarea>
+    
+Page 1 says:
+<div id="page1"></div>
+  
+  <script type="text/javascript">
+      // RECEIVER
+window.addEventListener("storage", ev => {
+    document.getElementById( ev.key ).innerHTML = ev.newValue;
+});
+
+// SENDER
+[...document.querySelectorAll("[data-sender]")].forEach( el =>
+        el.addEventListener("input", ev => localStorage[el.dataset.sender] = el.value )
+);
+  </script>
+</body>
+</html>

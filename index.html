@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Quiz 6</title>
+  <h1>Aparna Krishna Bhat</h1>
+  <h2>1001255079</h2>
+</head>
+<body>
+
+    <h1>PAGE 1</h1>
+
+<textarea data-sender="page1" placeholder="Write to page 2"></textarea>
+    
+Page 2 says:
+<div id="page2"></div>
+    
+</body>
+<script type="text/javascript">
+    // RECEIVER
+window.addEventListener("storage", ev => {
+    document.getElementById( ev.key ).innerHTML = ev.newValue;
+});
+
+// SENDER
+[...document.querySelectorAll("[data-sender]")].forEach( el =>
+        el.addEventListener("input", ev => localStorage[el.dataset.sender] = el.value )
+);                                                                                              
+</script>
+</html>
